@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Processor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <h1>Financial Transaction Processor</h1>
+    
+    <form id="transactionForm">
+        <h2>Enter Transactions</h2>
+        
+        <div id="transactionFields">
+            <!-- Transaction inputs will be added dynamically here -->
+        </div>
+        
+        <button type="button" id="addTransactionButton">Add Transaction</button><br><br>
+
+        <label for="years">Number of Years:</label><br>
+        <input type="number" id="years" name="years" min="1" value="3" required><br><br>
+        
+        <label for="interestRate">Annual Interest Rate (%):</label><br>
+        <input type="text" id="interestRate" name="interestRate" value="5" step="0.1" min="0" required><br><br>
+
+        <label for="vatRate">VAT Rate (%):</label><br>
+        <input type="text" id="vatRate" name="vatRate" value="5" step="0.1" min="0" required><br><br>
+        
+        <button type="submit">Process Transactions</button>
+    </form>
+    
+    <div id="result" style="display:none;">
+        <h2>Result</h2>
+        <p><strong>Net Balance Before Interest (after VAT adjustment): </strong><span id="net_balance"></span></p>
+        <p><strong>Final Balance with Compound Interest: </strong><span id="final_balance"></span></p>
+        <h3>Category Breakdown:</h3>
+        <ul id="category_breakdown"></ul>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

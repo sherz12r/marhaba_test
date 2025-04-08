@@ -48,14 +48,15 @@ def process_transactions(transactions: List[Dict], years: int, interest_rate: fl
             raise ValueError(f"Invalid category: {transaction['category']}")
         
         adjusted_amount = apply_vat(transaction, vat_rate)  # Apply VAT
+        
         if transaction['type'] == 'debit':
-            # Subtract debit amounts
+            # For debit transactions, subtract from total balance
             total_balance -= adjusted_amount
         else:
-            # Add credit amounts
+            # For credit transactions, add to total balance
             total_balance += adjusted_amount
         
-        # Update category totals
+        # Update category totals (with VAT applied)
         category_totals[transaction['category']] += adjusted_amount
     
     # Calculate compound interest if the net balance is positive

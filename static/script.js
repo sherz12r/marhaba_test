@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <input type="number" id="amount${transactionCount}" name="amount" required><br><br>
             
             <label for="vat${transactionCount}">VAT (AED):</label><br>
-            <input type="number" id="vat${transactionCount}" name="vat" required><br><br>
+            <input type="text" id="vat${transactionCount}" name="vat" required><br><br>
 
             <label for="type${transactionCount}">Type:</label><br>
             <select id="type${transactionCount}" name="type" required>
